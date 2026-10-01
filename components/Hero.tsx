@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { HERO_POSTER } from "@/data/projects";
 import { PHONE_DISPLAY, PHONE_TEL } from "@/lib/site";
 import { ArrowIcon } from "./Icons";
 import WaterCanvas from "./WaterCanvas";
@@ -14,7 +13,6 @@ export default function Hero() {
         loop
         playsInline
         preload="metadata"
-        poster={HERO_POSTER}
         aria-hidden="true"
       >
         <source src="/video/hero.mp4" type="video/mp4" />
