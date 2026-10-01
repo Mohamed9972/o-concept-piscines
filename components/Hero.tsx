@@ -1,31 +1,30 @@
-import Image from "next/image";
 import Link from "next/link";
-import { CTA_BACKGROUND } from "@/data/projects";
+import { HERO_POSTER } from "@/data/projects";
 import { PHONE_DISPLAY, PHONE_TEL } from "@/lib/site";
 import { ArrowIcon } from "./Icons";
 import WaterCanvas from "./WaterCanvas";
 
-/** Full-screen cinematic hero — inline-image headline, masked entrance. */
+/** Full-screen cinematic hero — video background, masked headline entrance. */
 export default function Hero() {
   return (
     <section className="hero" aria-label="Présentation">
-      <div className="hero-static" aria-hidden="true" />
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        poster={HERO_POSTER}
+        aria-hidden="true"
+      >
+        <source src="/video/hero.mp4" type="video/mp4" />
+      </video>
       <div className="shade" aria-hidden="true" />
       <div className="grain" aria-hidden="true" />
       <div className="hero-inner">
         <h1>
           <span className="rise">
-            <span style={{ ["--d" as string]: "0.05s" }}>
-              Piscines{" "}
-              <Image
-                className="h1-img"
-                src={CTA_BACKGROUND.src}
-                alt=""
-                width={320}
-                height={160}
-                priority
-              />
-            </span>
+            <span style={{ ["--d" as string]: "0.05s" }}>Piscines</span>
           </span>
           <span className="rise">
             <span style={{ ["--d" as string]: "0.17s" }}>

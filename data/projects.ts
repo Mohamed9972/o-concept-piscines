@@ -147,9 +147,4 @@ export const ABOUT_IMAGE: ProjectImage = {
   caption: "Matière et précision",
 };
 
-export const CTA_BACKGROUND = {
-  src: u("photo-1572331165267-854da2b10ccc", 1800),
-  alt: "",
-  width: 1800,
-  height: 1000,
-};
+
