@@ -2,10 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowIcon } from "@/components/Icons";
 import PageHero from "@/components/PageHero";
-import QuoteForm from "@/components/QuoteForm";
 import Reveal from "@/components/Reveal";
 import { JsonLd } from "@/components/Showcase";
-import { ADDRESS_LINES, EMAIL, PHONE_DISPLAY, PHONE_TEL, SITE_URL } from "@/lib/site";
+import { ADDRESS_LINES, EMAIL, PHONE_DISPLAY, PHONE_TEL, SITE_URL, whatsappUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact — Ariana | 98 157 900",
@@ -18,6 +17,8 @@ export const metadata: Metadata = {
     url: SITE_URL + "/contact",
   },
 };
+
+const WA_HELLO = whatsappUrl("Bonjour Ô Concept Piscines, je vous contacte depuis votre site.");
 
 export default function Contact() {
   return (
@@ -50,64 +51,74 @@ export default function Contact() {
         }}
       />
       <PageHero
-        title="Contactez Ô Concept Piscines"
-        intro="Appelez, écrivez ou passez nous voir à Ariana Centre. Nous répondons vite — surtout sur WhatsApp."
+        title="Contact"
+        intro="Téléphone, WhatsApp ou email — choisissez le moyen le plus simple. Basés à Ariana Centre, nous intervenons à Tunis et dans toute la Tunisie."
         crumbs={[{ href: "/", label: "Accueil" }, { label: "Contact" }]}
       />
-      <section className="section">
+      <section className="section" aria-label="Moyens de contact">
         <div className="wrap">
           <Reveal>
-            <div className="contact-cards">
+            <h2>Joignez-nous directement</h2>
+            <p className="lead">Pas de standard, pas d&apos;attente : vous parlez à l&apos;équipe qui construira votre piscine.</p>
+          </Reveal>
+          <Reveal>
+            <div className="cards3">
               <a href={PHONE_TEL}>
                 <span className="clabel">Téléphone</span>
                 <strong>{PHONE_DISPLAY}</strong>
-                <br />
-                <span className="muted">Appeler maintenant</span>
+                <span className="muted">Appel direct, réponse rapide</span>
               </a>
-              <a href="https://wa.me/21698157900?text=Bonjour%20%C3%94%20Concept%20Piscines">
+              <a href={WA_HELLO} target="_blank" rel="noopener">
                 <span className="clabel">WhatsApp</span>
-                <strong>Discuter sur WhatsApp</strong>
-                <br />
-                <span className="muted">Photos et questions bienvenues</span>
+                <strong>Discussion instantanée</strong>
+                <span className="muted">Envoyez photos et dimensions</span>
               </a>
               <a href={`mailto:${EMAIL}`}>
                 <span className="clabel">Email</span>
                 <strong>{EMAIL}</strong>
-                <br />
-                <span className="muted">Écrire un email</span>
+                <span className="muted">Plans, devis et questions détaillées</span>
               </a>
             </div>
           </Reveal>
-          <div className="split" style={{ marginTop: "3rem" }}>
-            <Reveal>
-              <h2>Notre adresse</h2>
-              <p className="lead">
-                {ADDRESS_LINES.map((l) => (
-                  <span key={l}>
-                    {l}
-                    <br />
-                  </span>
-                ))}
-              </p>
-              <iframe
-                className="map"
-                title="Carte — Ô Concept Piscines, Ariana Centre"
-                src="https://www.google.com/maps?q=Ariana+Centre,+Ariana,+Tunisie&output=embed"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                allowFullScreen
-              />
-            </Reveal>
-            <Reveal>
-              <h2 style={{ fontSize: "1.6rem" }}>Écrivez-nous</h2>
-              <QuoteForm compact />
-                <p style={{ marginTop: "1rem" }}>
-                  <Link className="btn btn-teal" href="/devis">
-                    Ou demander un devis <ArrowIcon />
-                  </Link>
-                </p>
-            </Reveal>
-          </div>
+        </div>
+      </section>
+      <section className="section" style={{ background: "var(--bg-warm)" }} aria-label="Adresse et projet">
+        <div className="wrap split">
+          <Reveal>
+            <h2>Où nous trouver</h2>
+            <div className="info-rows">
+              <div>
+                <span className="k">Adresse</span>
+                <span>{ADDRESS_LINES.join(", ")}</span>
+              </div>
+              <div>
+                <span className="k">Zone d&apos;intervention</span>
+                <span>Ariana, Tunis et environs — déplacements possibles dans toute la Tunisie</span>
+              </div>
+            </div>
+            <iframe
+              className="map"
+              title="Carte — Ô Concept Piscines, Ariana Centre"
+              src="https://www.google.com/maps?q=Ariana+Centre,+Ariana,+Tunisie&output=embed"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
+          </Reveal>
+          <Reveal>
+            <h2>Un projet de piscine ?</h2>
+            <p className="lead">
+              Décrivez votre terrain en deux minutes et recevez un premier avis — puis un chiffrage clair.
+            </p>
+            <p style={{ marginTop: "1.6rem", display: "flex", flexWrap: "wrap", gap: ".8rem" }}>
+              <Link className="btn btn-teal" href="/devis">
+                Demander un devis <ArrowIcon />
+              </Link>
+              <a className="btn btn-line" href={WA_HELLO} target="_blank" rel="noopener">
+                WhatsApp direct
+              </a>
+            </p>
+          </Reveal>
         </div>
       </section>
     </main>

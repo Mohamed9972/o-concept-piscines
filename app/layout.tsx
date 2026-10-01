@@ -64,19 +64,6 @@ const ORG_JSONLD = {
   areaServed: [{ "@type": "City", name: "Ariana" }, { "@type": "City", name: "Tunis" }, { "@type": "Country", name: "Tunisia" }],
 };
 
-function StickyCta() {
-  return (
-    <div className="sticky-cta" role="navigation" aria-label="Actions rapides">
-      <a className="btn btn-teal" href="/devis">
-        Demander un devis
-      </a>
-      <a className="btn call" href="tel:+21698157900">
-        Appeler
-      </a>
-    </div>
-  );
-}
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr-TN" className={`${serif.variable} ${sans.variable}`}>
@@ -92,7 +79,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         {children}
         <Footer />
-        <StickyCta />
         <JsonLd data={ORG_JSONLD} />
       </body>
     </html>

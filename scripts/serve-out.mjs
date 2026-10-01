@@ -9,12 +9,10 @@ const TYPES = { ".html": "text/html", ".css": "text/css", ".js": "text/javascrip
 
 http.createServer((req, res) => {
   const urlPath = decodeURIComponent(new URL(req.url, "http://x").pathname);
-  let file = path.join(ROOT.pathname.replace(/^\//, ""), urlPath);
-  try {
-    if (fs.statSync(file).isDirectory()) file = path.join(file, "index.html");
-  } catch {}
-  if (!fs.existsSync(file) && fs.existsSync(file + ".html")) file += ".html";
-  if (!fs.existsSync(file)) { res.writeHead(404); res.end("nf"); return; }
+  const base = path.join(ROOT.pathname.replace(/^\//, ""), urlPath);
+  const candidates = [base, base + ".html", path.join(base, "index.html")];
+  const file = candidates.find((f) => { try { return fs.statSync(f).isFile(); } catch { return false; } });
+  if (!file) { res.writeHead(404); res.end("nf"); return; }
   res.writeHead(200, { "Content-Type": TYPES[path.extname(file)] || "application/octet-stream" });
   fs.createReadStream(file).pipe(res);
 }).listen(PORT, "127.0.0.1", () => console.log("OUT-SRV:" + PORT));

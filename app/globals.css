@@ -262,6 +262,19 @@ textarea { min-height: 148px; resize: vertical; }
 .contact-cards a:hover { background: linear-gradient(90deg, rgba(14, 154, 148, 0.06), transparent 60%); }
 .contact-cards strong { font-family: var(--serif); font-weight: 500; font-size: 1.5rem; display: block; }
 .contact-cards .clabel { margin-bottom: 0.3rem; display: block; }
+/* Contact — 3 direct channels + info rows */
+.cards3 { display: grid; gap: 1rem; margin-top: 2.5rem; }
+@media (min-width: 900px) { .cards3 { grid-template-columns: repeat(3, 1fr); } }
+.cards3 a {
+  display: block; text-decoration: none; color: inherit;
+  background: var(--surface); border: 1px solid var(--line);
+  padding: 1.6rem; transition: border-color 0.2s, transform 0.2s var(--ease);
+}
+.cards3 a:hover { border-color: var(--teal); transform: translateY(-3px); }
+.cards3 strong { font-family: var(--serif); font-weight: 500; font-size: 1.45rem; display: block; margin: 0.35rem 0 0.25rem; overflow-wrap: anywhere; }
+.info-rows { border-top: 1px solid var(--ink); margin-top: 1.6rem; }
+.info-rows > div { display: grid; gap: 0.15rem; padding: 1.1rem 0; border-bottom: 1px solid var(--line); }
+.info-rows .k { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
 .map { border: 0; width: 100%; height: 380px; margin-top: 1.4rem; filter: grayscale(1) contrast(1.02); }
 
 /* Footer */
@@ -274,12 +287,7 @@ footer.site-footer { background: var(--deep-2); color: #d9e2e0; }
 .foot-word em { font-style: italic; color: var(--teal); }
 .foot-bottom { border-top: 1px solid rgba(255, 255, 255, 0.12); padding: 1.3rem 0; display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: space-between; font-size: 0.86rem; color: #93aca8; }
 
-/* Sticky mobile CTA */
-.sticky-cta { position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 70; display: flex; gap: 0.6rem; }
-.sticky-cta a { flex: 1; text-align: center; }
-.sticky-cta .call { flex: 0.55; background: #fff; color: var(--ink); border: 1px solid var(--line); }
-@media (min-width: 960px) { .sticky-cta { display: none; } }
-@media (max-width: 959px) { body { padding-bottom: 86px; } }
+
 
 /* Reveal: quiet fade-rise + clip variant for imagery.
    Hidden-initial states apply ONLY when html.js is set (JS alive).
