@@ -1,0 +1,12 @@
+# Cloudflare Pages redirects — typo + shortcut URLs (Next static export
+# does not support redirects in next.config.ts).
+/realisation /realisations 301
+/realisation/* /realisations 301
+/service /services 301
+/servicess /services 301
+/servicess/* /services/:splat 301
+/service/* /services/:splat 301
+/services/conception /services/conception-piscine 301
+/services/construction /services/construction-piscine 301
+/services/renovation /services/renovation-piscine 301
+/services/amenagement /services/amenagement-piscine 301

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 120" role="img" aria-label="Ô Concept Piscines — logo">
+  <title>Ô Concept Piscines</title>
+  <!-- Monogram: interlocked Ô (charcoal) + C (teal), inspired by official logo -->
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Ô shape -->
+    <path d="M52 34 H88 V96 H52 V34 Z" stroke="#4E4E4E" stroke-width="14"/>
+    <!-- C shape interlocked -->
+    <path d="M104 34 H140 V52 H118 V78 H140 V96 H104 V34 Z" stroke="#4E4E4E" stroke-width="14" opacity="0"/>
+    <path d="M100 96 V44 Q100 34 110 34 H142 Q152 34 152 44 V58" stroke="#4E4E4E" stroke-width="13"/>
+    <path d="M152 78 V92 Q152 102 142 102 H102" stroke="#14AFA8" stroke-width="13"/>
+    <!-- circumflex -->
+    <path d="M62 18 L72 8 L82 18" stroke="#14AFA8" stroke-width="7"/>
+  </g>
+  <g font-family="Inter, Arial, sans-serif">
+    <text x="168" y="72" font-size="26" font-weight="700" letter-spacing="1" fill="#14AFA8">ONCEPT</text>
+    <text x="30" y="112" font-size="13.5" font-weight="600" letter-spacing="2.2" fill="#4E4E4E">Ô CONCEPT PISCINES</text>
+  </g>
+</svg>
